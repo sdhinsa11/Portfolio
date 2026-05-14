@@ -1,0 +1,620 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sohana | Portfolio</title>
+  <style>
+    :root {
+      --black: #050505;
+      --white: #ffffff;
+      --off-white: #f7f7f7;
+      --gray: #666666;
+      --light-gray: #e8e8e8;
+      --cherry: #8f1d45;
+      --cherry-light: #f7d9e5;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: var(--white);
+      color: var(--black);
+      line-height: 1.6;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .container {
+      width: min(1100px, 90%);
+      margin: 0 auto;
+    }
+
+    .navbar {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      background: rgba(255, 255, 255, 0.95);
+      border-bottom: 1px solid var(--light-gray);
+    }
+
+    .nav-content {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1.1rem 0;
+    }
+
+    .logo {
+      font-size: 1.3rem;
+      font-weight: 800;
+    }
+
+    .logo span {
+      color: var(--cherry);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 1.5rem;
+      font-size: 0.95rem;
+      font-weight: 600;
+    }
+
+    .nav-links a:hover {
+      color: var(--cherry);
+    }
+
+    .hero {
+      padding: 6rem 0;
+    }
+
+    .tagline {
+      color: var(--cherry);
+      font-size: 0.85rem;
+      font-weight: 800;
+      letter-spacing: 0.18rem;
+      text-transform: uppercase;
+      margin-bottom: 1rem;
+    }
+
+    .hero h1 {
+      max-width: 850px;
+      font-size: clamp(2.8rem, 8vw, 5.8rem);
+      line-height: 0.95;
+      letter-spacing: -0.05em;
+      margin-bottom: 1.5rem;
+    }
+
+    .hero p {
+      max-width: 650px;
+      color: var(--gray);
+      font-size: 1.1rem;
+      margin-bottom: 2rem;
+    }
+
+    .button-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.8rem;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 0.85rem 1.25rem;
+      border-radius: 999px;
+      font-weight: 700;
+      font-size: 0.95rem;
+      border: 1px solid var(--black);
+      transition: 0.2s ease;
+    }
+
+    .btn-primary {
+      background: var(--black);
+      color: var(--white);
+    }
+
+    .btn-primary:hover {
+      background: var(--cherry);
+      border-color: var(--cherry);
+    }
+
+    .btn-outline:hover {
+      border-color: var(--cherry);
+      color: var(--cherry);
+    }
+
+    section {
+      padding: 5rem 0;
+    }
+
+    .section-light {
+      background: var(--off-white);
+      border-top: 1px solid var(--light-gray);
+      border-bottom: 1px solid var(--light-gray);
+    }
+
+    .section-dark {
+      background: var(--black);
+      color: var(--white);
+    }
+
+    .section-header {
+      margin-bottom: 2.5rem;
+      max-width: 700px;
+    }
+
+    .section-header h2 {
+      font-size: clamp(2rem, 4vw, 3rem);
+      line-height: 1;
+      margin-bottom: 1rem;
+    }
+
+    .section-header p {
+      color: var(--gray);
+    }
+
+    .section-dark .section-header p {
+      color: #cccccc;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.3rem;
+    }
+
+    .card {
+      background: var(--white);
+      border: 1px solid var(--light-gray);
+      border-radius: 24px;
+      padding: 1.4rem;
+      transition: 0.2s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      border-color: var(--cherry);
+    }
+
+    .project-image {
+      height: 150px;
+      background: var(--black);
+      border-radius: 18px;
+      margin-bottom: 1.2rem;
+    }
+
+    .card h3 {
+      font-size: 1.25rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .card p {
+      color: var(--gray);
+      font-size: 0.95rem;
+      margin-bottom: 1rem;
+    }
+
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-bottom: 1.2rem;
+    }
+
+    .tag {
+      background: var(--cherry-light);
+      color: var(--cherry);
+      padding: 0.35rem 0.65rem;
+      border-radius: 999px;
+      font-size: 0.75rem;
+      font-weight: 800;
+    }
+
+    .card-links {
+      display: flex;
+      gap: 1rem;
+      color: var(--cherry);
+      font-weight: 800;
+      font-size: 0.9rem;
+    }
+
+    .experience-list {
+      display: grid;
+      gap: 1rem;
+    }
+
+    .experience-item {
+      border: 1px solid var(--light-gray);
+      border-radius: 24px;
+      padding: 1.5rem;
+      background: var(--white);
+    }
+
+    .experience-item .place {
+      color: var(--cherry);
+      font-weight: 800;
+      font-size: 0.9rem;
+    }
+
+    .experience-item h3 {
+      margin: 0.35rem 0;
+    }
+
+    .experience-item p {
+      color: var(--gray);
+    }
+
+    .travel-layout {
+      display: grid;
+      grid-template-columns: 1.4fr 0.8fr;
+      gap: 1.5rem;
+    }
+
+    .map-box {
+      min-height: 380px;
+      position: relative;
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      border-radius: 28px;
+      background: #111111;
+      overflow: hidden;
+    }
+
+    .map-label {
+      position: absolute;
+      inset: 0;
+      display: grid;
+      place-items: center;
+      text-align: center;
+      color: rgba(255, 255, 255, 0.1);
+      font-size: clamp(4rem, 12vw, 8rem);
+      font-weight: 900;
+    }
+
+    .pin {
+      position: absolute;
+      width: 16px;
+      height: 16px;
+      background: #ff8ab5;
+      border-radius: 50%;
+      border: 3px solid var(--white);
+      cursor: pointer;
+    }
+
+    .pin::after {
+      content: attr(data-place);
+      position: absolute;
+      left: 50%;
+      bottom: 150%;
+      transform: translateX(-50%);
+      background: var(--white);
+      color: var(--black);
+      padding: 0.35rem 0.6rem;
+      border-radius: 999px;
+      font-size: 0.75rem;
+      font-weight: 800;
+      white-space: nowrap;
+      opacity: 0;
+      pointer-events: none;
+      transition: 0.2s ease;
+    }
+
+    .pin:hover::after {
+      opacity: 1;
+    }
+
+    .place-list {
+      background: var(--white);
+      color: var(--black);
+      border-radius: 28px;
+      padding: 1.5rem;
+    }
+
+    .place-list h3 {
+      margin-bottom: 1rem;
+    }
+
+    .place-list ul {
+      list-style: none;
+      display: grid;
+      gap: 0.7rem;
+    }
+
+    .place-list li {
+      border: 1px solid var(--light-gray);
+      border-radius: 16px;
+      padding: 0.8rem 1rem;
+      font-weight: 700;
+    }
+
+    .contact-box {
+      background: var(--cherry);
+      color: var(--white);
+      border-radius: 28px;
+      padding: 2rem;
+    }
+
+    .contact-box p {
+      color: rgba(255, 255, 255, 0.8);
+      margin: 0.7rem 0 1.5rem;
+    }
+
+    footer {
+      border-top: 1px solid var(--light-gray);
+      padding: 2rem 0;
+      color: var(--gray);
+      font-size: 0.9rem;
+    }
+
+    @media (max-width: 800px) {
+      .nav-links {
+        display: none;
+      }
+
+      .grid,
+      .travel-layout {
+        grid-template-columns: 1fr;
+      }
+
+      .hero {
+        padding: 4rem 0;
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav class="navbar">
+    <div class="container nav-content">
+      <a href="#home" class="logo">Sohana<span>.</span></a>
+      <div class="nav-links">
+        <a href="#projects">Projects</a>
+        <a href="#experience">Experience</a>
+        <a href="#travel">Travel</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </div>
+  </nav>
+
+  <header id="home" class="hero container">
+    <p class="tagline">Developer • Learner • Problem Solver</p>
+    <h1>Hi, I’m Sohana. I build thoughtful software and love learning new things.</h1>
+    <p>
+      I’m interested in full-stack development, AI/ML, social impact, teaching, fitness, travel,
+      and building projects that solve real problems.
+    </p>
+    <div class="button-row">
+      <a href="#projects" class="btn btn-primary">View Projects</a>
+      <a href="resume.pdf" class="btn btn-outline">View Resume</a>
+      <a href="https://github.com/YOUR-USERNAME" class="btn btn-outline">GitHub</a>
+      <a href="https://www.linkedin.com/in/YOUR-LINKEDIN" class="btn btn-outline">LinkedIn</a>
+    </div>
+  </header>
+
+  <section id="projects" class="section-light">
+    <div class="container">
+      <div class="section-header">
+        <p class="tagline">Projects</p>
+        <h2>Things I’ve built</h2>
+        <p>A few projects that show my interests in full-stack development, machine learning, social impact, and personal tools.</p>
+      </div>
+
+      <div class="grid">
+        <article class="card">
+          <div class="project-image"></div>
+          <h3>AidStock</h3>
+          <p>A full-stack inventory app concept for nonprofits to manage supplies, categories, and stock levels.</p>
+          <div class="tags">
+            <span class="tag">Node.js</span>
+            <span class="tag">Express</span>
+            <span class="tag">PostgreSQL</span>
+          </div>
+          <div class="card-links">
+            <a href="#">GitHub</a>
+            <a href="#">Demo</a>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="project-image"></div>
+          <h3>AI4Good Homelessness Project</h3>
+          <p>A machine learning project exploring how socioeconomic factors can impact homelessness in Edmonton.</p>
+          <div class="tags">
+            <span class="tag">Python</span>
+            <span class="tag">ML</span>
+            <span class="tag">Data</span>
+          </div>
+          <div class="card-links">
+            <a href="#">GitHub</a>
+
+            <!-- Put link to the website here on the AI4Good website  -->
+            <a href="#">More Information </a>
+          </div>
+        </article>
+
+
+        
+        <!-- Put the memory card game here -->
+        <article class="card">
+          <div class="project-image"></div>
+          <h3>React Memory Game</h3>
+          <p>A personal fitness tracking idea focused on workouts, progress, and habit-building.</p>
+          <div class="tags">
+            <span class="tag">HTML</span>
+            <span class="tag">CSS</span>
+            <span class="tag">JavaScript</span>
+          </div>
+          <div class="card-links">
+            <a href="#">GitHub</a>
+            <a href="#">Demo</a>
+          </div>
+        </article>
+
+        <!-- Put the 301 project here -->
+        <article class="card">
+          <div class="project-image"></div>
+          <h3>301 Project</h3>
+          <p>A personal fitness tracking idea focused on workouts, progress, and habit-building.</p>
+          <div class="tags">
+            <span class="tag">HTML</span>
+            <span class="tag">CSS</span>
+            <span class="tag">JavaScript</span>
+          </div>
+          <div class="card-links">
+            <a href="#">GitHub</a>
+            <a href="#">Demo</a>
+          </div>
+        </article>
+
+        <!--  HackED Beta Project -->
+        <article class="card">
+          <div class="project-image"></div>
+          <h3>Flask Project - Hacked</h3>
+          <p>A personal fitness tracking idea focused on workouts, progress, and habit-building.</p>
+          <div class="tags">
+            <span class="tag">HTML</span>
+            <span class="tag">CSS</span>
+            <span class="tag">JavaScript</span>
+          </div>
+          <div class="card-links">
+            <a href="#">GitHub</a>
+            <a href="#">Demo</a>
+          </div>
+        </article>
+
+        <!-- HackED Project -->
+        <article class="card">
+          <div class="project-image"></div>
+          <h3>Flask Project</h3>
+          <p>A personal fitness tracking idea focused on workouts, progress, and habit-building.</p>
+          <div class="tags">
+            <span class="tag">HTML</span>
+            <span class="tag">CSS</span>
+            <span class="tag">JavaScript</span>
+          </div>
+          <div class="card-links">
+            <a href="#">GitHub</a>
+            <a href="#">Demo</a>
+          </div>
+        </article>
+
+        <!-- Mini Message Board Project -->
+        <article class="card">
+          <div class="project-image"></div>
+          <h3>Flask Project</h3>
+          <p>A personal fitness tracking idea focused on workouts, progress, and habit-building.</p>
+          <div class="tags">
+            <span class="tag">HTML</span>
+            <span class="tag">CSS</span>
+            <span class="tag">JavaScript</span>
+          </div>
+          <div class="card-links">
+            <a href="#">GitHub</a>
+            <a href="#">Demo</a>
+          </div>
+        </article>
+
+        <!-- React Ecommerce Store Project -->
+        <article class="card">
+          <div class="project-image"></div>
+          <h3>Flask Project</h3>
+          <p>A personal fitness tracking idea focused on workouts, progress, and habit-building.</p>
+          <div class="tags">
+            <span class="tag">HTML</span>
+            <span class="tag">CSS</span>
+            <span class="tag">JavaScript</span>
+          </div>
+          <div class="card-links">
+            <a href="#">GitHub</a>
+            <a href="#">Demo</a>
+          </div>
+        </article>
+
+
+      </div>
+    </div>
+  </section>
+
+  <section id="experience">
+    <div class="container">
+      <div class="section-header">
+        <p class="tagline">Experience</p>
+        <h2>Resume highlights</h2>
+        <p>A snapshot of my technical, teaching, and social impact experience.</p>
+      </div>
+
+      <!-- FIX THIS -->
+
+      <div class="experience-item">
+          <p class="place">KeyStoneOs</p>
+          <h3>Software Developer Intern</h3>
+          <p>Built a machine learning project focused on homelessness, public policy, and social impact.</p>
+      </div>
+
+
+      <div class="experience-item">
+          <p class="place">Whats the Deal?</p>
+          <h3>Software Developer Intern</h3>
+          <p>Built a machine learning project focused on homelessness, public policy, and social impact.</p>
+      </div>
+
+
+      <div class="experience-list">
+        <div class="experience-item">
+          <p class="place">Spartan Controls</p>
+          <h3>Business Optimization Intern</h3>
+          <p>Worked on automation, process improvement, Power Platform, VBA, and technical problem-solving.</p>
+        </div>
+
+        <div class="experience-item">
+          <p class="place">AI4Good Lab</p>
+          <h3>AI4Good Lab Fellow</h3>
+          <p>Built a machine learning project focused on homelessness, public policy, and social impact.</p>
+        </div>
+
+        <div class="experience-item">
+          <p class="place">University of Alberta</p>
+          <h3>Teaching Assistant</h3>
+          <p>Supported students with programming concepts, debugging, and technical learning.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <section id="contact">
+    <div class="container">
+      <div class="contact-box">
+        <h2>Let’s connect.</h2>
+        <p>Add your real email, LinkedIn, GitHub, and resume links here.</p>
+        <div class="button-row">
+          <a href="mailto:your.email@example.com" class="btn btn-primary">Email Me</a>
+          <a href="https://github.com/YOUR-USERNAME" class="btn btn-outline">GitHub</a>
+          <a href="https://www.linkedin.com/in/YOUR-LINKEDIN" class="btn btn-outline">LinkedIn</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <p>© <span id="year"></span> Sohana. Built with HTML, CSS, and JavaScript.</p>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
