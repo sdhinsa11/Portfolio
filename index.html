@@ -191,10 +191,22 @@
 
     .project-image {
       height: 150px;
-      background: var(--black);
       border-radius: 18px;
       margin-bottom: 1.2rem;
+      background-size: cover;
+      background-position: center;
     }
+
+    .aidstock-image {
+      background-image: url("./images/aidStock.png");
+    }
+
+    .housed-image {
+      background-image: url("./images/housed.png");
+    }
+
+
+
 
     .card h3 {
       font-size: 1.25rem;
@@ -381,7 +393,6 @@
       <div class="nav-links">
         <a href="#projects">Projects</a>
         <a href="#experience">Experience</a>
-        <a href="#travel">Travel</a>
         <a href="#contact">Contact</a>
       </div>
     </div>
@@ -391,13 +402,13 @@
     <p class="tagline">Developer • Learner • Problem Solver</p>
     <h1>Hi, I’m Sohana. I build thoughtful software and love learning new things.</h1>
     <p>
-      I’m interested in full-stack development, AI/ML, social impact, teaching, fitness, travel,
+      I’m interested in full-stack development, AI/ML, social impact, teaching/mentoring, staying active, travel,
       and building projects that solve real problems.
     </p>
     <div class="button-row">
       <a href="#projects" class="btn btn-primary">View Projects</a>
       <a href="resume.pdf" class="btn btn-outline">View Resume</a>
-      <a href="https://github.com/YOUR-USERNAME" class="btn btn-outline">GitHub</a>
+      <a href="https://github.com/sdhinsa11" class="btn btn-outline">GitHub</a>
       <a href="https://www.linkedin.com/in/YOUR-LINKEDIN" class="btn btn-outline">LinkedIn</a>
     </div>
   </header>
@@ -412,7 +423,7 @@
 
       <div class="grid">
         <article class="card">
-          <div class="project-image"></div>
+          <div class="project-image aidstock-image"></div>
           <h3>AidStock</h3>
           <p>A full-stack inventory app concept for nonprofits to manage supplies, categories, and stock levels.</p>
           <div class="tags">
@@ -421,13 +432,12 @@
             <span class="tag">PostgreSQL</span>
           </div>
           <div class="card-links">
-            <a href="#">GitHub</a>
-            <a href="#">Demo</a>
+            <a href="https://github.com/sdhinsa11/AidStock">GitHub</a>
           </div>
         </article>
 
         <article class="card">
-          <div class="project-image"></div>
+          <div class="project-image housed-image"></div>
           <h3>AI4Good Homelessness Project</h3>
           <p>A machine learning project exploring how socioeconomic factors can impact homelessness in Edmonton.</p>
           <div class="tags">
@@ -436,10 +446,8 @@
             <span class="tag">Data</span>
           </div>
           <div class="card-links">
-            <a href="#">GitHub</a>
-
             <!-- Put link to the website here on the AI4Good website  -->
-            <a href="#">More Information </a>
+            <a href="https://www.ai4goodlab.com/news/project-reports/2025/10/21/housed-2025-edmonton-accelerator-award-winner/">Project</a>
           </div>
         </article>
 
